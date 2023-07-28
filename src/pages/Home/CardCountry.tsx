@@ -1,5 +1,6 @@
 import React from "react";
-import { Card, CardMedia, CardContent, Typography, Grid } from "@mui/material";
+import { Card, CardMedia, CardContent, Typography } from "@mui/material";
+import Grid from "@mui/material/Unstable_Grid2";
 import { Flags } from "../../types/country";
 import { Region } from "../../types/Regions";
 interface CardCountryProps {
@@ -17,7 +18,7 @@ function CardCountry({
   capital,
 }: CardCountryProps) {
   return (
-    <Grid item xs={12} sm={12} md={12} lg={3}>
+    <Grid xs={12} sm={12} md={12} lg={3}>
       <Card
         sx={{
           width: { lg: "300px", md: "350px", sm: "350px", xs: "350px" },

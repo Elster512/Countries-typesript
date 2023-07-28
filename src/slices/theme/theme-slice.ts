@@ -5,9 +5,10 @@ const themeSlice = createSlice({
   initialState: false,
   reducers: {
     changeTheme: (state) => {
-      state = true;
+      return !state;
     },
   },
 });
 
 export const themeReducer = themeSlice.reducer;
+export const { changeTheme } = themeSlice.actions;
