@@ -24,6 +24,7 @@ const countriesSlice = createSlice({
       })
       .addCase(loadAllCountries.fulfilled, (state, action) => {
         state.list = action.payload.data;
+        state.status = "";
       });
   },
 });

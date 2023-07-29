@@ -57,7 +57,7 @@ function Deatails() {
                 src={country?.flags.svg}
                 sx={{
                   height: "100%",
-                  maxHeight: { md: "500px", sm: "300px", xs: "300px" },
+                  maxHeight: { md: "400px", xs: "300px" },
                   width: "100%",
                   maxWidth: "600px",
                 }}
