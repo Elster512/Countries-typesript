@@ -19,7 +19,7 @@ function CardCountry({
   capital,
 }: CardCountryProps) {
   return (
-    <Grid xs={12} sm={12} md={12} lg={3}>
+    <Grid xs={12} lg={3}>
       <CustomLink to={name}>
         <Card
           sx={{

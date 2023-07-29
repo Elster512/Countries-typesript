@@ -29,7 +29,7 @@ function Deatails() {
     <Box>
       <Container>
         <Grid2 container rowSpacing={5}>
-          <Grid2 lg={12} md={12} sm={12} xs={12}>
+          <Grid2 lg={12}>
             <Button
               sx={{
                 boxShadow: 2,
