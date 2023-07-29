@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Container, Box } from "@mui/material";
+import { Container, Box, Typography } from "@mui/material";
 import Grid from "@mui/material/Unstable_Grid2";
 import CardCountry from "./CardCountry";
 import { useSelector } from "react-redux";
@@ -32,7 +32,6 @@ function Home() {
         maxWidth={false}
         sx={{
           maxWidth: "1600px",
-          mt: "3rem",
           padding: "20px",
         }}
       >
@@ -51,27 +50,38 @@ function Home() {
           </Grid>
         </Grid>
         <Grid container spacing={8}>
-          {countries
-            .filter((country: Country) => {
-              if (region) {
-                return country.region === region;
-              } else {
-                return true;
-              }
-            })
-            .filter((country: Country) =>
-              country.name.toLowerCase().includes(search)
-            )
-            .map((country: Country, index) => (
-              <CardCountry
-                flags={country.flags}
-                capital={country.capital}
-                region={country.region}
-                population={country.population}
-                name={country.name}
-                key={index}
-              />
-            ))}
+          {countries.status && (
+            <Grid lg={12}>
+              <Typography
+                variant="h3"
+                sx={{ margin: "0 auto", textAlign: "center" }}
+              >
+                {countries.status}
+              </Typography>
+            </Grid>
+          )}
+          {countries.list &&
+            countries.list
+              .filter((country: Country) => {
+                if (region) {
+                  return country.region === region;
+                } else {
+                  return true;
+                }
+              })
+              .filter((country: Country) =>
+                country.name.toLowerCase().includes(search.toLowerCase())
+              )
+              .map((country: Country, index) => (
+                <CardCountry
+                  flags={country.flags}
+                  capital={country.capital}
+                  region={country.region}
+                  population={country.population}
+                  name={country.name}
+                  key={index}
+                />
+              ))}
         </Grid>
       </Container>
     </Box>

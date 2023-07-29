@@ -1,8 +1,9 @@
-import React from "react";
 import { Card, CardMedia, CardContent, Typography } from "@mui/material";
 import Grid from "@mui/material/Unstable_Grid2";
 import { Flags } from "../../types/country";
 import { Region } from "../../types/Regions";
+import CustomLink from "./CustomLink";
+
 interface CardCountryProps {
   name: string;
   flags: Flags;
@@ -19,34 +20,37 @@ function CardCountry({
 }: CardCountryProps) {
   return (
     <Grid xs={12} sm={12} md={12} lg={3}>
-      <Card
-        sx={{
-          width: { lg: "300px", md: "350px", sm: "350px", xs: "350px" },
-          height: { lg: "300px", md: "400px", sm: "400px", xs: "400px" },
-          margin: "0 auto",
-        }}
-      >
-        <CardMedia
+      <CustomLink to={name}>
+        <Card
           sx={{
-            height: { lg: "135px", md: "200px", sm: "200px", xs: "200px" },
+            width: { lg: "300px", md: "350px", sm: "350px", xs: "350px" },
+            height: { lg: "300px", md: "400px", sm: "400px", xs: "400px" },
+            margin: "0 auto",
+            boxShadow: 3,
           }}
-          image={flags.png}
-        ></CardMedia>
-        <CardContent>
-          <Typography variant="h6" gutterBottom>
-            {name}
-          </Typography>
-          <Typography>
-            <span>Population:</span> {population}
-          </Typography>
-          <Typography>
-            <span>Region:</span> {region}
-          </Typography>
-          <Typography>
-            <span>Capital:</span> {capital}
-          </Typography>
-        </CardContent>
-      </Card>
+        >
+          <CardMedia
+            sx={{
+              height: { lg: "135px", md: "200px", sm: "200px", xs: "200px" },
+            }}
+            image={flags.png}
+          ></CardMedia>
+          <CardContent>
+            <Typography variant="h6" gutterBottom>
+              {name}
+            </Typography>
+            <Typography>
+              <span>Population:</span> {population.toLocaleString("en-US")}
+            </Typography>
+            <Typography>
+              <span>Region:</span> {region}
+            </Typography>
+            <Typography>
+              <span>Capital:</span> {capital}
+            </Typography>
+          </CardContent>
+        </Card>
+      </CustomLink>
     </Grid>
   );
 }

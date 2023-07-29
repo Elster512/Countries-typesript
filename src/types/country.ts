@@ -3,12 +3,12 @@ export type Flags = {
   svg: string;
   png: string;
 };
-type Currency = {
+export type Currency = {
   code: string;
   name: string;
   symbol: string;
 };
-type Language = {
+export type Language = {
   iso639_1: string;
   iso639_2: string;
   name: string;
@@ -17,7 +17,7 @@ type Language = {
 export type Country = {
   name: string;
   topLevelDomain: string[];
-
+  alpha3Code: string;
   capital: string;
   subregion: string;
   region: Region;

@@ -18,17 +18,14 @@ const SelectMenu = ({ handleChange, value }: SelectMenuProps) => {
   return (
     <FormControl sx={{ minWidth: "250px" }}>
       <Select
+        sx={{ boxShadow: 3 }}
         value={value}
-        labelId="demo-simple-select-label"
         displayEmpty
-        id="demo-simple-select"
         onChange={handleChangeSelect}
       >
-        <MenuItem value="">
-          <em>Filter by Region</em>
-        </MenuItem>
+        <MenuItem value="">Filter by Region</MenuItem>
         <MenuItem value={"Africa"}>Africa</MenuItem>
-        <MenuItem value={"America"}>America</MenuItem>
+        <MenuItem value={"Americas"}>Americas</MenuItem>
         <MenuItem value={"Asia"}>Asia</MenuItem>
         <MenuItem value={"Oceania"}>Oceania</MenuItem>
         <MenuItem value={"Europe"}>Europe</MenuItem>

@@ -5,6 +5,7 @@ import "./index.css";
 import App from "./App";
 import { Provider } from "react-redux";
 import { store } from "./store";
+import ThemeHelper from "./helper/themeHelper";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
@@ -12,7 +13,9 @@ const root = ReactDOM.createRoot(
 root.render(
   <BrowserRouter>
     <Provider store={store}>
-      <App />
+      <ThemeHelper>
+        <App />
+      </ThemeHelper>
     </Provider>
   </BrowserRouter>
 );

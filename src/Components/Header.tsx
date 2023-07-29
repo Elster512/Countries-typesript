@@ -12,15 +12,15 @@ function Header() {
     dispatch(changeTheme());
   };
   return (
-    <AppBar position="static">
+    <AppBar position="static" sx={{ mb: "2rem", boxShadow: 2 }}>
       <Toolbar>
         <Typography sx={{ flexGrow: 1 }} variant="h5">
           Where in the world?
         </Typography>
         <IconButton onClick={handleClickTheme}>
-          {theme ? <LightModeOutlined /> : <DarkModeOutlined />}
-          <Typography variant="subtitle1" sx={{ ml: 1 }}>
-            {theme ? "Light Mode" : "Dark Mode"}
+          {theme === "light" ? <LightModeOutlined /> : <DarkModeOutlined />}
+          <Typography variant="h6" sx={{ ml: 1 }}>
+            {theme === "light" ? "Light Mode" : "Dark Mode"}
           </Typography>
         </IconButton>
       </Toolbar>

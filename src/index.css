@@ -6,19 +6,9 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-h5 {
-  font-weight: 800 !important;
-}
-h6 {
-  font-weight: 600 !important;
-}
-p {
-  font-weight: 300 !important;
-}
 span {
   font-weight: 600;
 }
-
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;

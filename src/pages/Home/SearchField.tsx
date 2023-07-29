@@ -15,7 +15,12 @@ function SearchField({ handleChange, value }: SearchFieldProps) {
         value={value}
         onChange={handleChangeInput}
         name="textFild"
-        sx={{ width: { lg: "350px", md: "100%", sm: "100%", xs: "100%" } }}
+        placeholder="Search for a country..."
+        sx={{
+          width: { lg: "350px", md: "100%", sm: "100%", xs: "100%" },
+          boxShadow: 3,
+          borderRadius: "4px",
+        }}
         InputProps={{
           startAdornment: (
             <InputAdornment position="start">
