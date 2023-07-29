@@ -20,6 +20,8 @@ function SearchField({ handleChange, value }: SearchFieldProps) {
           width: { lg: "350px", md: "100%", sm: "100%", xs: "100%" },
           boxShadow: 3,
           borderRadius: "4px",
+          color: "text.primary",
+          backgroundColor: "secondary.light",
         }}
         InputProps={{
           startAdornment: (

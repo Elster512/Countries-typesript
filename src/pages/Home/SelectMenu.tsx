@@ -18,7 +18,11 @@ const SelectMenu = ({ handleChange, value }: SelectMenuProps) => {
   return (
     <FormControl sx={{ minWidth: "250px" }}>
       <Select
-        sx={{ boxShadow: 3 }}
+        sx={{
+          boxShadow: 3,
+          color: "text.primary",
+          backgroundColor: "secondary.light",
+        }}
         value={value}
         displayEmpty
         onChange={handleChangeSelect}
