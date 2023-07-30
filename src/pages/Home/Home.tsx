@@ -1,10 +1,9 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { Container, Box, Typography } from "@mui/material";
 import Grid2 from "@mui/material/Unstable_Grid2";
 import CardCountry from "./CardCountry";
 import { useSelector } from "react-redux";
-import { useAppDispatch } from "../../redux-hooks";
-import { loadAllCountries } from "../../slices/countries/countries-asyncActions";
+
 import { selectAllCountries } from "../../slices/countries/countries-selectors";
 import { Country } from "../../types/country";
 
@@ -13,7 +12,6 @@ import SelectMenu from "./SelectMenu";
 import { Region } from "../../types/Regions";
 
 function Home() {
-  const dispatch = useAppDispatch();
   const [search, setSearch] = useState("");
   const [region, setRegion] = useState<Region>("");
   const countries = useSelector(selectAllCountries);
@@ -23,9 +21,6 @@ function Home() {
   const handleChangeInput = (text: string) => {
     setSearch(text);
   };
-  useEffect(() => {
-    dispatch(loadAllCountries());
-  }, [dispatch]);
   return (
     <Box>
       <Container
