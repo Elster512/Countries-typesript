@@ -1,5 +1,5 @@
 import { Card, CardMedia, CardContent, Typography } from "@mui/material";
-import Grid from "@mui/material/Unstable_Grid2";
+import Grid2 from "@mui/material/Unstable_Grid2";
 import { Flags } from "../../types/country";
 import { Region } from "../../types/Regions";
 import CustomLink from "./CustomLink";
@@ -19,11 +19,11 @@ function CardCountry({
   capital,
 }: CardCountryProps) {
   return (
-    <Grid xs={12} lg={3}>
+    <Grid2 xs={12} lg={3}>
       <CustomLink to={name}>
         <Card
           sx={{
-            width: { lg: "300px", md: "350px", sm: "350px", xs: "350px" },
+            width: { sm: "300px", xs: "300px" },
             height: { lg: "300px", md: "400px", sm: "400px", xs: "400px" },
             margin: "0 auto",
             boxShadow: 3,
@@ -32,6 +32,7 @@ function CardCountry({
           <CardMedia
             sx={{
               height: { lg: "135px", md: "200px", sm: "200px", xs: "200px" },
+              width: "100%",
             }}
             image={flags.png}
           ></CardMedia>
@@ -51,7 +52,7 @@ function CardCountry({
           </CardContent>
         </Card>
       </CustomLink>
-    </Grid>
+    </Grid2>
   );
 }
 

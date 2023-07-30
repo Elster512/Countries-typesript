@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Container, Box, Typography } from "@mui/material";
-import Grid from "@mui/material/Unstable_Grid2";
+import Grid2 from "@mui/material/Unstable_Grid2";
 import CardCountry from "./CardCountry";
 import { useSelector } from "react-redux";
 import { useAppDispatch } from "../../redux-hooks";
@@ -35,7 +35,7 @@ function Home() {
           padding: "20px",
         }}
       >
-        <Grid
+        <Grid2
           container
           rowSpacing={4}
           sx={{
@@ -44,21 +44,23 @@ function Home() {
             mb: "3rem",
           }}
         >
-          <SearchField handleChange={handleChangeInput} value={search} />
-          <Grid lg={2} md={2} sm={2} xs={2}>
+          <Grid2 xs={12} lg={10}>
+            <SearchField handleChange={handleChangeInput} value={search} />
+          </Grid2>
+          <Grid2 lg={2}>
             <SelectMenu handleChange={handleChangeSelect} value={region} />
-          </Grid>
-        </Grid>
-        <Grid container spacing={8}>
+          </Grid2>
+        </Grid2>
+        <Grid2 container spacing={8}>
           {countries.status && (
-            <Grid lg={12}>
+            <Grid2 lg={12}>
               <Typography
                 variant="h3"
                 sx={{ margin: "0 auto", textAlign: "center" }}
               >
                 {countries.status}
               </Typography>
-            </Grid>
+            </Grid2>
           )}
           {countries.list &&
             countries.list
@@ -82,7 +84,7 @@ function Home() {
                   key={index}
                 />
               ))}
-        </Grid>
+        </Grid2>
       </Container>
     </Box>
   );

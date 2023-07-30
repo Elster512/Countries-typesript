@@ -12,7 +12,7 @@ function Header() {
     dispatch(changeTheme());
   };
   return (
-    <AppBar position="static" sx={{ mb: "2rem", boxShadow: 2 }}>
+    <AppBar position="static" sx={{ mb: "2rem", boxShadow: 2, width: "100%" }}>
       <Toolbar>
         <Typography sx={{ flexGrow: 1 }} variant="h5">
           Where in the world?
