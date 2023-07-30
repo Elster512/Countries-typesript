@@ -61,5 +61,5 @@ export const darkTheme = createTheme({
       primary: "#ffffff",
     },
   },
-  // typography: typography,
+  typography: typography,
 });
