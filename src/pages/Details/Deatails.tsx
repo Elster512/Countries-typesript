@@ -16,10 +16,10 @@ function Deatails() {
   const navigate = useNavigate();
   const { name } = useParams();
   const country: Country | undefined = useSelector(
-    selectCountryByName(name ? name : "")
+    selectCountryByName(name as string)
   );
   const borderCountries: Country[] | undefined = useSelector(
-    selectBorderCountries(country ? country.borders : [])
+    selectBorderCountries(country?.borders as string[])
   );
   const handleClick = () => {
     navigate(-1);
@@ -49,27 +49,26 @@ function Deatails() {
               <Typography>Go Back</Typography>
             </Button>
           </Grid2>
-          <Grid2 container lg={12} spacing={6}>
-            <Grid2 sm={6} xs={12}>
+          <Grid2 container lg={12} spacing={6} disableEqualOverflow>
+            <Grid2 md={6} xs={12}>
               <Box
                 boxShadow={4}
                 component="img"
                 src={country?.flags.svg}
                 sx={{
-                  height: "100%",
-                  maxHeight: { md: "400px", xs: "300px" },
-                  width: "100%",
-                  maxWidth: "600px",
+                  maxHeight: { md: "378px", xs: "295px" },
+
+                  maxWidth: { md: "450px", xs: "390px" },
                 }}
               />
             </Grid2>
-            <Grid2 container spacing={7} sm={6} sx={{ maxHeight: "300px" }}>
+            <Grid2 container spacing={7} md={6} sx={{ maxHeight: "300px" }}>
               <Grid2 xs={12} sx={{ height: "25px" }}>
                 <Typography variant="h5">{country?.name}</Typography>
               </Grid2>
               <Grid2 xs={12}>
-                <Grid2 container spacing={3} xs={12}>
-                  <Grid2 xs={12} sm={6}>
+                <Grid2 container spacing={3}>
+                  <Grid2 md={12} lg={6}>
                     <Typography>
                       <Typography component="span" variant="body1">
                         Native Name:
@@ -101,7 +100,7 @@ function Deatails() {
                       {country?.capital}
                     </Typography>
                   </Grid2>
-                  <Grid2 xs={12} sm={6}>
+                  <Grid2 md={12} lg={6}>
                     <Typography>
                       <Typography component="span" variant="body1">
                         Top Level Domain:
@@ -128,30 +127,34 @@ function Deatails() {
                       })}
                     </Typography>
                   </Grid2>
-                  <Grid2 container xs={12}>
-                    <Grid2 xs={12} sm={3}>
-                      <Typography variant="h6">Border Countries:</Typography>
-                    </Grid2>
-                    <Grid2 container xs={12} sm={9}>
-                      {borderCountries &&
-                        borderCountries.map((country: Country, index) => {
-                          return (
-                            <Grid2 component="div" key={index}>
-                              <CountriesLink to={country.name}>
-                                <Button
-                                  sx={{
-                                    boxShadow: 2,
+                  <Grid2 xs={12}>
+                    <Grid2 container spacing={2}>
+                      <Grid2 xs={12} sm={12} md={12} lg={3}>
+                        <Typography variant="h6">Border Countries:</Typography>
+                      </Grid2>
+                      <Grid2 xs={12} lg={9}>
+                        <Grid2 container spacing={2}>
+                          {borderCountries &&
+                            borderCountries.map((country: Country, index) => {
+                              return (
+                                <Grid2 component="div" key={index}>
+                                  <CountriesLink to={country.name}>
+                                    <Button
+                                      sx={{
+                                        boxShadow: 2,
 
-                                    color: "text.primary",
-                                    backgroundColor: "secondary.light",
-                                  }}
-                                >
-                                  {country.alpha3Code}
-                                </Button>
-                              </CountriesLink>
-                            </Grid2>
-                          );
-                        })}
+                                        color: "text.primary",
+                                        backgroundColor: "secondary.light",
+                                      }}
+                                    >
+                                      {country.name}
+                                    </Button>
+                                  </CountriesLink>
+                                </Grid2>
+                              );
+                            })}
+                        </Grid2>
+                      </Grid2>
                     </Grid2>
                   </Grid2>
                 </Grid2>
