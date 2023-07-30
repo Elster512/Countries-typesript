@@ -15,11 +15,11 @@ import CountriesLink from "./CountriesLink";
 function Deatails() {
   const navigate = useNavigate();
   const { name } = useParams();
-  const country: Country | undefined = useSelector(
-    selectCountryByName(name as string)
+  const country: Country | undefined = useSelector((state) =>
+    selectCountryByName(state, name)
   );
-  const borderCountries: Country[] | undefined = useSelector(
-    selectBorderCountries(country?.borders as string[])
+  const borderCountries: Country[] | undefined = useSelector((state) =>
+    selectBorderCountries(state, country?.borders)
   );
   const handleClick = () => {
     navigate(-1);
